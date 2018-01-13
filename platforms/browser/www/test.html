@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>This example uses the HTML DOM to assign an "onmousedown" and "onmouseup" event to a p element.</p>
+
+<a id="demo">Click me.</a>
+
+<script>
+document.getElementById("demo").onmousedown = function() {mouseDown()};
+document.getElementById("demo").onmouseup = function() {mouseUp()};
+
+function mouseDown() {
+    document.getElementById("demo").innerHTML = "The mouse button is held down.";
+}
+
+function mouseUp() {
+    document.getElementById("demo").innerHTML = "You released the mouse button.";
+}
+</script>
+
+</body>
+</html>

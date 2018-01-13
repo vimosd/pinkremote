@@ -7,6 +7,7 @@
   <title>RemoteBlock</title>
   <link rel="stylesheet" href="css/framework7.ios.min.css">
   <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+  <link rel="stylesheet" href="css/framework7-icons.css">
   <link rel="stylesheet" href="css/app.css">
 
 </head>
@@ -59,6 +60,7 @@
           <f7-page>
             <f7-block-title>Welcome to PinkBot</f7-block-title>
             <f7-block inner>
+            <p>{{gyroval}}</p>
               <p>Get sensor data and send control signals to your program block using this remote block over home network or internet</p>
             </f7-block>
             
@@ -143,8 +145,67 @@
       <f7-block inner>
         <p> <f7-label>Compute Block IP Address</f7-label>
           <f7-input type="text" placeholder="192.168.1.128" v-model="ipaddress"></f7-input></p>
-        <p><f7-button big fill color="green" v-on:click="connectBot">Connect</f7-button></p>
+        <p><f7-button big fill color="green" v-on:click="connectBot">Connect</f7-button>
+          <f7-label color="red">{{message}}</f7-label>
+        </p>
 
+      </f7-block>
+    </f7-page>
+  </template>
+
+  <template id="page-rcbutton">
+    <f7-page>
+      <f7-navbar title="Remote Control" back-link="Back" sliding>Remote Control</f7-navbar>
+      <f7-block inner>
+        <f7-grid>
+            <f7-col><f7-button fill big raised color="green" v-on:taphold="alert('test')">F</f7-button></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+        </f7-grid>
+        <f7-grid>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+            <f7-col><f7-button fill big raised color="green" icon="icon-back" v-on:click="rcmouseUp(1)"></f7-button></f7-col>
+            <f7-col><f7-button fill big raised color="green" icon="icon-forward"></f7-button></f7-col>
+        </f7-grid>
+        <f7-grid>
+            <f7-col><f7-button fill big raised color="green" id="rcbackbtn">B</f7-button></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+        </f7-grid>
+      </f7-block>
+    </f7-page>
+  </template>
+
+  <template id="page-rcgyro">
+    <f7-page @page:init="rcpginit">
+      <f7-navbar title="Remote Control" back-link="Back" sliding>Remote Control</f7-navbar>
+      <f7-block inner>
+      <p hide>{{gyroval}}</p>
+      <f7-block-title>Gyro based Remote Left: {{m1}}  Right: {{m2}}</f7-block-title>
+        <f7-grid>
+            <f7-col><f7-button fill big raised color="green" v-on:click="rcgyroMove(1)">F</f7-button></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+            <f7-col id="stopcol"><f7-button fill big raised color="red" id="stopbtn" v-on:click="rcgyroMove(3)">Stop</f7-button></f7-col>
+        </f7-grid>
+        <f7-grid>
+          <f7-col>&nbsp;</f7-col>
+        </f7-grid>
+        <f7-grid>
+            <f7-col><f7-button fill big raised color="green" v-on:click="rcgyroMove(2)">B</f7-button></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+            <f7-col></f7-col>
+        </f7-grid>
       </f7-block>
     </f7-page>
   </template>
@@ -306,12 +367,13 @@
       </f7-block>
     </f7-page>
   </template>
-
   <script src="cordova.js"></script>
   <script src="js/framework7.min.js"></script>
   <script src="js/vue.min.js"></script>
   <script src="js/framework7-vue.min.js"></script>
   <script src="js/app.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/pinkbotcore.js"></script>
+
+
 </body>
 </html>
