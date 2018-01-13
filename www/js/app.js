@@ -78,10 +78,10 @@ var move = 'stop';
             console.log('after set value -----');
             console.log(btn);
             document.getElementById("stopbtn").addEventListener('touchstart', function(){
-              botdetails.gyroval = 'down';}
+              botdetails.gyroval = 'down';
             }, false);
             document.getElementById("stopbtn").addEventListener('touchend', function(){
-              botdetails.gyroval = 'up';}
+              botdetails.gyroval = 'up';
             }, false);
             // document.getElementById("stopbtn").touchstart = function() {console.log('mouse down'); botdetails.gyroval = 'down';};
             // document.getElementById("stopbtn").touchend = function() {console.log('mouse up'); botdetails.gyroval = 'up';};
