@@ -74,6 +74,7 @@ var move = 'stop';
         rcpginit: function(){
           console.log('RC gyro page init is called');
           //setTimeout(function(){
+            botdetails.gyroval = 'Stop';
             var btnf = document.getElementById("rcgyrobtnf");
             var btnb = document.getElementById("rcgyrobtnb");
             btnf.addEventListener('touchstart', function(){
