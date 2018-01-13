@@ -77,19 +77,19 @@ var move = 'stop';
             var btnf = document.getElementById("rcgyrobtnf");
             var btnb = document.getElementById("rcgyrobtnb");
             btnf.addEventListener('touchstart', function(){
-              // rcgyroMove(1);
+              motorAction(1);
               botdetails.gyroval = 'rcgyrobtnf down';
             }, false);
             btnf.addEventListener('touchend', function(){
-                // rcgyroMove(3);
+                motorAction(3);
                 botdetails.gyroval = 'rcgyrobtnf up';
             }, false);  
             btnb.addEventListener('touchstart', function(){
-              // rcgyroMove(2);
+              motorAction(2);
               botdetails.gyroval = 'rcgyrobtnb down';
             }, false);
             btnb.addEventListener('touchend', function(){
-                // rcgyroMove(3);
+                motorAction(3);
                 botdetails.gyroval = 'rcgyrobtnb up';
             }, false);  
           //},1000);
@@ -173,6 +173,19 @@ var move = 'stop';
     initGyro(); 
     //initJq();
 
+  }
+  function motorAction(btn){
+    rspin = gspin;
+    if(btn == 1){
+      botdetails.gyroval = 'Move Forward';
+      botdetails.m = 'f';
+    }else if(btn == 2){
+      botdetails.gyroval = 'Move Backward';
+      botdetails.m = 'b';
+    }else{
+      botdetails.gyroval = 'Stop';
+      botdetails.m = 'stop';
+    }    
   }
   function initGyro(){
     function processEvent(event) {
