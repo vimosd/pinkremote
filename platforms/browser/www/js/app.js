@@ -73,7 +73,7 @@ var move = 'stop';
         },
         rcpginit: function(){
           console.log('RC gyro page init is called');
-          setTimeout(function(){
+          //setTimeout(function(){
             var btnf = document.getElementById("rcgyrobtnf");
             var btnb = document.getElementById("rcgyrobtnb");
             btnf.addEventListener('touchstart', function(){
@@ -92,19 +92,19 @@ var move = 'stop';
                 // rcgyroMove(3);
                 botdetails.gyroval = 'rcgyrobtnb up';
             }, false);  
-          },1000);
-          setTimeout(function(){ 
-            console.log('after set value -----');
-            //console.log(btn);
-            document.getElementById("stopbtn").addEventListener('touchstart', function(){
-              botdetails.gyroval = 'stopbtn down';
-            }, false);
-            document.getElementById("stopbtn").addEventListener('touchend', function(){
-              botdetails.gyroval = 'stopbtn up';
-            }, false);
-            // document.getElementById("stopbtn").touchstart = function() {console.log('mouse down'); botdetails.gyroval = 'down';};
-            // document.getElementById("stopbtn").touchend = function() {console.log('mouse up'); botdetails.gyroval = 'up';};
-          },3000);
+          //},1000);
+          // setTimeout(function(){ 
+          //   console.log('after set value -----');
+          //   //console.log(btn);
+          //   document.getElementById("stopbtn").addEventListener('touchstart', function(){
+          //     botdetails.gyroval = 'stopbtn down';
+          //   }, false);
+          //   document.getElementById("stopbtn").addEventListener('touchend', function(){
+          //     botdetails.gyroval = 'stopbtn up';
+          //   }, false);
+          //   // document.getElementById("stopbtn").touchstart = function() {console.log('mouse down'); botdetails.gyroval = 'down';};
+          //   // document.getElementById("stopbtn").touchend = function() {console.log('mouse up'); botdetails.gyroval = 'up';};
+          // },3000);
         }
       }
     })
