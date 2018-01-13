@@ -73,20 +73,38 @@ var move = 'stop';
         },
         rcpginit: function(){
           console.log('RC gyro page init is called');
-          var btnf = document.getElementById("rcgyrobtnf");
-          var btnb = document.getElementById("rcgyrobtnb");
-          btnf.addEventListener('touchstart', function(){
-            rcgyroMove(1);
-          }, false);
-          btnf.addEventListener('touchend', function(){
-              rcgyroMove(3);
-          }, false);  
-          btnb.addEventListener('touchstart', function(){
-            rcgyroMove(2);
-          }, false);
-          btnb.addEventListener('touchend', function(){
-              rcgyroMove(3);
-          }, false);  
+          setTimeout(function(){
+            var btnf = document.getElementById("rcgyrobtnf");
+            var btnb = document.getElementById("rcgyrobtnb");
+            btnf.addEventListener('touchstart', function(){
+              // rcgyroMove(1);
+              botdetails.gyroval = 'rcgyrobtnf down';
+            }, false);
+            btnf.addEventListener('touchend', function(){
+                // rcgyroMove(3);
+                botdetails.gyroval = 'rcgyrobtnf up';
+            }, false);  
+            btnb.addEventListener('touchstart', function(){
+              // rcgyroMove(2);
+              botdetails.gyroval = 'rcgyrobtnb down';
+            }, false);
+            btnb.addEventListener('touchend', function(){
+                // rcgyroMove(3);
+                botdetails.gyroval = 'rcgyrobtnb up';
+            }, false);  
+          },1000);
+          setTimeout(function(){ 
+            console.log('after set value -----');
+            //console.log(btn);
+            document.getElementById("stopbtn").addEventListener('touchstart', function(){
+              botdetails.gyroval = 'stopbtn down';
+            }, false);
+            document.getElementById("stopbtn").addEventListener('touchend', function(){
+              botdetails.gyroval = 'stopbtn up';
+            }, false);
+            // document.getElementById("stopbtn").touchstart = function() {console.log('mouse down'); botdetails.gyroval = 'down';};
+            // document.getElementById("stopbtn").touchend = function() {console.log('mouse up'); botdetails.gyroval = 'up';};
+          },3000);
         }
       }
     })
