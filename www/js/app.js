@@ -71,27 +71,22 @@ var move = 'stop';
             botdetails.m = 'stop';
           }
         },
-        rcts: function(){
-          botdetails.gyroval = 'down';
-        },
-        rcte: function(){
-          botdetails.gyroval = 'up';
-        },
         rcpginit: function(){
           console.log('RC gyro page init is called');
-          var btn = document.getElementById("stopbtn");
-          setTimeout(function(){ 
-            console.log('after set value -----');
-            console.log(btn);
-            // document.getElementById("stopbtn").addEventListener('touchstart', function(){
-            //   botdetails.gyroval = 'down';
-            // }, false);
-            // document.getElementById("stopbtn").addEventListener('touchend', function(){
-            //   botdetails.gyroval = 'up';
-            // }, false);
-            // document.getElementById("stopbtn").touchstart = function() {console.log('mouse down'); botdetails.gyroval = 'down';};
-            // document.getElementById("stopbtn").touchend = function() {console.log('mouse up'); botdetails.gyroval = 'up';};
-          },3000);
+          var btnf = document.getElementById("rcgyrobtnf");
+          var btnb = document.getElementById("rcgyrobtnb");
+          btnf.addEventListener('touchstart', function(){
+            rcgyroMove(1);
+          }, false);
+          btnf.addEventListener('touchend', function(){
+              rcgyroMove(3);
+          }, false);  
+          btnb.addEventListener('touchstart', function(){
+            rcgyroMove(2);
+          }, false);
+          btnb.addEventListener('touchend', function(){
+              rcgyroMove(3);
+          }, false);  
         }
       }
     })
